@@ -2,7 +2,7 @@
 ## About this
 This is the repository for Arduino in ME210(Engineering Practice) in SJTU.Maybe some codes cannot work well with your single-chip, just find more when you are taking courses.
 
-Some libraries come from Arduino UNO, while others can be found in github(like IRemote).
+Some libraries come from Arduino IDE, while others can be found in github(like IRemote).
 
 If you find any problems in this repository, welcome to make an issue or pull request.
 ## 关于这个
