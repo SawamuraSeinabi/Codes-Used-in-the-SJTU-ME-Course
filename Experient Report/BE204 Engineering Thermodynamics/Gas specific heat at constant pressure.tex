@@ -1,0 +1,302 @@
+\documentclass[UTF8,a4paper,10pt]{ctexart}
+\usepackage[left=2.50cm, right=2.50cm, top=2.50cm, bottom=2.50cm]{geometry} %页边距
+\CTEXsetup[format={\Large\bfseries}]{section} %设置章标题居左
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% -- text font --
+% compile using Xelatex
+%%%%%%%%%%%%%%%%%%%%%%%
+% -- 中文字体 --
+%\setmainfont{Microsoft YaHei}  % 微软雅黑
+%\setmainfont{YouYuan}  % 幼圆    
+%\setmainfont{NSimSun}  % 新宋体
+%\setmainfont{KaiTi}    % 楷体
+%\setmainfont{SimSun}   % 宋体
+%\setmainfont{SimHei}   % 黑体
+% -- 英文字体 --
+%\usepackage{times}
+%\usepackage{mathpazo}
+%\usepackage{fourier}
+%\usepackage{charter}
+\usepackage{helvet}
+
+\usepackage[unicode]{hyperref}
+\usepackage{amsmath, amsfonts, amssymb} % math equations, symbols
+\usepackage[english]{babel}
+\usepackage{color}      % color content
+\usepackage{graphicx}   % import figures
+\usepackage{url}        % hyperlinks
+\usepackage{bm}         % bold type for equations
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{epstopdf}
+\usepackage{epsfig}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\renewcommand{\algorithmicrequire}{ \textbf{Input:}}     % use Input in the format of Algorithm  
+\renewcommand{\algorithmicensure}{ \textbf{Initialize:}} % use Initialize in the format of Algorithm  
+\renewcommand{\algorithmicreturn}{ \textbf{Output:}}     % use Output in the format of Algorithm  
+
+
+\usepackage{fancyhdr} %设置页眉、页脚
+%\pagestyle{fancy}
+\lhead{}
+\chead{}
+%\rhead{\includegraphics[width=1.2cm]{fig/ZJU_BLUE.eps}}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%  设置水印
+%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{draftwatermark}         % 所有页加水印
+%\usepackage[firstpage]{draftwatermark} % 只有第一页加水印
+\SetWatermarkText{}           % 设置水印内容
+% \SetWatermarkText{\includegraphics{fig/ZJDX-WaterMark.eps}}         % 设置水印logo
+\SetWatermarkLightness{0.9}             % 设置水印透明度 0-1
+\SetWatermarkScale{0.5}                   % 设置水印大小 0-1    
+
+
+\title{\textbf{气体定压比热测定实验实验报告}}
+\author{}
+\date{\today}
+
+\def \d {\mathrm{d}}
+\def \celsius{\ensuremath{^\circ\hspace{-0.09em}\mathrm{C}}}
+
+\begin{document}
+	\maketitle
+	
+	
+	\section{简述实验目的及原理}
+	\subsection{实验目的}
+	1. 了解气体比热测定装置的基本原理和构思；
+	
+	
+	2. 熟悉本实验中的测温、测压、测热、测流量的方法；
+	
+	
+	3. 掌握由基本数据计算出比热值和求得比热公式的方法；
+	
+	
+	4. 分析本实验产生误差的原因及减小误差的可能途径；
+	
+	
+	5．增加同学热物性研究方面的感性认识，促使理论联系实际，培养同学分析问题和解决问题的能力。 
+	\subsection{实验原理}
+	热力学第一定律的解析式告诉我们：
+	\begin{align}
+	\delta q =\d u+p\d v=\d (h-pv)+p\d v =\d h-p\d v-v\d p+p\d v=\d h-v\d p
+	\end{align}
+	
+	
+	而定压时，
+	\begin{align}
+	\d p=0,c_{p}=\left(\dfrac{\d q}{\d T}\right)=\left(\dfrac{\d h-v\d p}{\d T}\right)=\left(\dfrac{\partial h}{\partial T}\right)_{p}
+	\end{align}
+	
+	
+	在没有对外界做功的气体的等压流动过程中，
+	\begin{align}
+	\d h=\dfrac{1}{Q_{m}}\d P
+	\end{align}
+	
+	
+	则气体的定压比热可以表示为
+	\begin{align}
+	c_{p}\big|^{t_{2}}_{t_{1}}=\dfrac{P}{Q_{m}(t_{2}-t_{1})},单位是[kJ/(kg\cdot \celsius)]
+	\end{align}
+	式中，$Q_{m}$是气体的质量流量，单位$kg/s$；
+	
+	
+	$P$ 是气体在等压流动过程中单位时间的吸热量，单位$kW$。
+	
+	
+	理想气体的比热是温度的单值函数，该函数关系可表达为
+	\begin{align}
+	c_{p}=a_{0}+a_{1}t+a_{2}t^{2}+...
+	\end{align}
+	式中$a_{0},a_{1},a_{2}$等是与气体性质有关的常数。
+	
+	
+	实验表明，在离开室温不很远的温度范围内，空气的定压比热与温度的关系可近似认为是线性的，即可近似表示为
+	\begin{align}
+	c_{p}=a+bt
+	\end{align}
+	则温度由$t_{1}$升至$t_{2}$的过程中所需要的热量可表示为：
+	\begin{align}
+	q=\int_{t_{1}}^{t_{2}} (a+bt)\d t 
+	\end{align}
+	由$t_{1}$加热到$t_{2}$的平均定压比热则可表示为：
+	\begin{align}
+	c_{p}\big|^{t_{2}}_{t_{1}}=\dfrac{\int_{t_{1}}^{t_{2}} (a+bt)\d t }{t_{2}-t_{1}}
+	\end{align}
+	\subsection{实验装置及测量系统}
+	1．本实验装置由风机、流量计、比热仪本体、电功率调节及测量系统等四部分组成。
+	
+	
+	2．比热测定仪本体由内壁镀银的多层杜瓦瓶，空气进出、口，热空气出口测温热电偶，电加热器和均流网，绝缘垫，旋流片和混流网等组成。
+	
+	
+	3．实验时，被测空气由风机经湿式气体流量计送入比热仪本体，经加热、均流、旋流、 混流后流出。在此过程中，分别测定：气体经比热仪本体的进出口温度
+	$(t_{1},t_{2})$；气体的容积流量$(Q_{v})$；电热器的输入功率
+	$(p)$；以及实验时相应的大气压$(p_{b})$和流量计出口处的表压$(\Delta h)$。有了这些数据，并查用相应的物性参数，便可计算出被测气体的定压比热 $(c_{p})$。
+	
+	
+	4．气体的流量由调节阀控制，气体出口温度由输入电热器的功率（电压）来调节。本比热仪可测$240\celsius$以下的定压比热。
+	\section{实验步骤}
+	1.测量气体每流过$6$升，即流量计指针转$3$圈所需的时间$\tau_{0}$
+	
+	
+	2.接通电源，确认电压调节旋钮在最小位置；
+	
+	
+	3.打开风机，调节节流阀，使气流量保持在预选值附近（流量计指针约$11$秒左右转一圈）。将加热开关拨向“ON”；
+	
+	
+	4.顺时针转动电压调节旋钮，设定电加热功率初始值，比热仪出口温度便开始上升。
+	
+	
+	5.待出口温度稳定后（出口温度约在湿式流量计指针转3圈以后（$40$秒左右时间）无变化或有微小起伏即可视为稳定，若要精确测量稳定时间应更长些）。测量$6$升气体通过流量计(流量计指针转3圈)所需时间$\tau$，比热仪进口温度$t_{1}$，出口温度$t_{2}$，流量计中气体表压（U型管压力表读数）$\Delta h$，电热器的功率$P$。
+	
+	6．依次测定其余各工况的相关数值并填入本实验报告中的实验数据记录表。 实验中需要测定和计算气流温度、水蒸汽的质量流量$Q_{mv}$、干空气的质量流量$Q_{ma}$、干空气的吸热量$P_{a}$等数据。
+	
+	7．测试结束后，将电压调节旋钮调至零，加热开关拨向“OFF”，但不关闭风机，加速对杜瓦瓶内部的通风冷却。待比热仪出口温度与环境温度的差值小于$10\celsius$时再关闭风机，试验结束。
+	\section{实验数据及计算}
+	天气情况：晴天； 室温$t_{b}=19.5\celsius$； 当地大气压$p_{b}=1021.8hPa$。 
+	
+	
+	数据记录表格：
+	\begin{tabular}{|c|c|c|c|c|c|}
+		\hline 
+		工况 & 1 & 2 & 3 & 备用 & 备注 \\ 
+		\hline 
+		加热功率工况值$(W)$ & 8 & 20 & 35 & 50 & 实测 \\ 
+		\hline 
+		湿空气加热前温度$t_{1}(\celsius )$& 19.5 & 19.4 & 19.3 & 19.3 & 实测 \\ 
+		\hline 
+		气体表压$\Delta h(mmH_{2}O)$& 2.5 & 2.5 & 2.5 & 2.5 & 实测 \\ 
+		\hline 
+		6升气体通过时间$\tau (s)$& 33.6 & 32.7 & 32.84 & 32.8 & 实测 \\
+		\hline 
+		比热仪出口温度$t_{2}(\celsius)$& 57.8 & 105.1 & 159.2 & 214.2 & 实测 \\ 
+		\hline 
+		电加热器的功率$P(W)$& 8.68 & 20.39 & 35.04 & 50.23 & 实测 \\ 
+		\hline 
+		水蒸汽分压力$P_{v}(P_{a})$&  &  &  &  & 计算得出\\ 
+		\hline 
+		水蒸汽质量流量$Q_{mv}(kg/s)$&  &  &  &  & 计算得出 \\ 
+		\hline 
+		湿空气绝对压力$P(Pa)$&  &  &  &  & 计算得出\\ 
+		\hline 
+		干空气质量流量$Q_{ma}(kg/s)$&  &  &  &  & 计算得出\\ 
+		\hline 
+		水蒸汽吸热功率$P_{v}(W)$&  &  &  &  & 计算得出\\ 
+		\hline 
+		空气的定压比热$c_{p}\big |^{t_{2}}_{t_{1}} [J/(kg\cdot K)]$&  &  &  &  & 计算得出\\ 
+		\hline 
+		$(t_{1}+t_{2})/2(\celsius )$&  &  &  &  & \\ 
+		\hline 
+	\end{tabular} 
+	\subsection{数据计算}
+	以工况2为例计算：
+	$p_{v}=10^{x}(Pa)$，其中$x=12.501305+0.0024804T_{w}-\dfrac{3142.305}{T_{w}}+8.2 \times \lg (\dfrac{373.145}{T_{w}})$，将$T_{w}=t_{w}+273.15=292.55K$代入，得$x=3.3524,p_{v}=2251.2Pa$.
+	
+	
+	由水蒸气质量流量公式算得：
+	\begin{align}
+	Q_{mv}=\dfrac{p_{v}(V/\tau)}{R_{v}T_{1}}=\dfrac{2251.2Pa\cdot\left(\dfrac{6\times10^{-3}m^{3}}{33.6s}\right)}{461.5[J/kg\cdot K]\times 292.55K}=3.06\times10^{-6}kg/s
+	\end{align}
+	气流中湿空气的绝对压力
+	\begin{align}
+	p=100p_{b}+9.80665\Delta h=100\times 1021.8+9.80665\times2.5=102204.5Pa
+	\end{align}
+	气流中干空气分压力
+	\begin{align}
+	p_{a}=p-p_{v}=102204.5-2251.1=99953.4Pa
+	\end{align}
+	干空气质量流量为
+	\begin{align}
+	Q_{ma}=\dfrac{p_{a}(V/\tau)}{R_{a}T_{1}}=\dfrac{99953.4Pa\cdot\left(\dfrac{6\times10^{-3}m^{3}}{33.6s}\right)}{287.05[J/kg\cdot K]\times 292.55K}=2.1840\times 10^{-4}kg/s
+	\end{align}
+	当湿空气气流由温度$t_{1}$加热到$t_{2}$时，其中单位质量水蒸汽的吸热量可用式(7)计算，对水蒸汽$a=1.833,b=0.0003111$ 。故气流中水蒸汽的单位时间的吸热量（吸热功率）
+	\begin{equation}
+	\begin{split}
+	P_{v}
+	& =1000Q_{mv}\int_{t_{1}}^{t_{2}}(1.833+0.0003111t)\d t\\
+	& =1000Q_{mv}\left[1.833(t_{2}-t_{1})+0.0001556((t_{2}^{2}-t_{1}^{2}))\right]\\
+	& =1000 \times 2.978 \times 10^{-6}\times[1.833(105.1-19.4)+0.0001556(105.1^{2}-19.4^{2})]\\
+	& =0.5081W
+	\end{split}
+	\end{equation}
+	从而可以得到空气的定压比热容
+	\begin{align}
+	c_{p}\big| ^{t_{2}}_{t_{1}}=\dfrac{P_{a}}{Q_{ma}(t_{2}-t_{1})}=1062.24[J/(kg\cdot K)]
+		\end{align}
+		
+		
+	同样的，可以通过计算得到剩下的数值，制表如下：\\
+	\begin{tabular}{|c|c|c|c|c|c|}
+		\hline 
+		工况 & 1 & 2 & 3 & 备用 & 备注 \\ 
+		\hline 
+		加热功率工况值$(W)$ & 8 & 20 & 35 & 50 & 实测 \\ 
+		\hline 
+		湿空气加热前温度$t_{1}(\celsius )$& 19.5 & 19.4 & 19.3 & 19.3 & 实测 \\ 
+		\hline 
+		气体表压$\Delta h(mmH_{2}O)$& 2.5 & 2.5 & 2.5 & 2.5 & 实测 \\ 
+		\hline 
+		6升气体通过时间$\tau (s)$& 33.6 & 32.7 & 32.84 & 32.8 & 实测 \\
+		\hline 
+		比热仪出口温度$t_{2}(\celsius)$& 57.8 & 105.1 & 159.2 & 214.2 & 实测 \\ 
+		\hline 
+		电加热器的功率$P(W)$& 8.68 & 20.39 & 35.04 & 50.23 & 实测 \\ 
+		\hline 
+		水蒸汽分压力$P_{v}(P_{a})$& 2265.25 & 2251.20 & 2237.23 & 2237.23 & 计算得出\\ 
+		\hline 
+		水蒸汽质量流量$Q_{mv}(kg/s)$& $3.00\times10^{-6}$ & $3.06\times10^{-6}$ & $3.03\times10^{-6}$ & $3.03\times10^{-6}$ & 计算得出 \\ 
+		\hline 
+		湿空气绝对压力$P(Pa)$& 102204.5 & 102204.5 & 102204.5 & 102204.5 & 计算得出\\ 
+		\hline 
+		干空气质量流量$Q_{ma}(kg/s)$& $2.1244\times10^{-4}$ & $2.1840\times10^{-4}$ & $2.1757\times10^{-4}$ & $2.1783\times10^{-4}$ & 计算得出\\ 
+		\hline 
+		水蒸汽吸热功率$P_{v}(W)$& 0.2200 & 0.5081 & 0.8248 & 1.154 & 计算得出\\ 
+		\hline 
+		空气的定压比热$c_{p}\big |^{t_{2}}_{t_{1}} [J/(kg\cdot K)]$& 1047.97 & 1062.24 & 1124.09 & 1155.95 & 计算得出\\ 
+		\hline 
+		$(t_{1}+t_{2})/2(\celsius )$& 38.5 & 62.25 & 89.25 & 116.75 & \\ 
+		\hline 
+	\end{tabular} 
+\subsection{数据处理(origin拟合曲线)}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=18cm,height=12cm]{3}
+	\caption{origin拟合曲线}
+\end{figure}
+\section{思考题}
+\subsection{}
+1、本实验中指导老师提醒了哪些实验注意事项？ \\
+答：
+1.切勿在无气流通过情况下使电热器投入工作，以免引起局部过热而损害比热仪本体；\\
+2.输入电热器电压不得超过220伏，气体出口温度最高不得超过$240\celsius$；\\
+3.加热和冷却要缓慢进行，防止比热仪本体及温度计因温度骤然变化和受热不均匀而破裂；\\
+4.停止实验时，应先将电压开关逆时针调到最小，切断加热电源，勿关闭风机开关，保持对杜瓦瓶内部进行通风冷却。待比热仪出口温度与环境温度的差值小于$10\celsius$时再关闭风机。
+\subsection{}
+2、气体被加热后，要经过均流、旋流后才测量气体的出口温度，为什么？ \\
+答：进行均流温流后可以使气体受热均匀，使气体各处温度大致相等，从而提高实验精度。
+
+\subsection{}
+3、进行实验误差分析，说明可能造成实验误差的原因，提出某种适用的减少误差的方法。\\
+答：1.实验时的工作物质是空气而非理想气体，它所遵循的状态变化规律与理想气体所遵循的变化规律存在差异，用理想气体的状态方程来推导空气比热容比的计算公式，其结果存在理论近似误差。但实验过程中气压小些，误差可忽略。\\
+2.实验装置中玻璃材料组件的端面之间均采用粘结方式,由于粘结面大、接头多，在移动和温度湿度变化的情况下,会产生极细微的泄漏。\\
+3.实验环境本身时刻在变化。\\
+4.人工计时，反应时间等等的不准确。\\
+可以通过增加计时圈数增加计时的精度，尽量选择无风、较密闭环境减少与外界的热交换登方式减小实验误差。
+\section{心得}
+虽然这次由于疫情原因，没有办法实地真真正正的手操做实验，但是学校依旧依托强大的资源让我能够完成这次实验报告的撰写。过程中加深了我对于气体比定压热容的认识以及计算方式，让我学到了许多。
+	\end{document}

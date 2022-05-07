@@ -1,0 +1,335 @@
+\documentclass[UTF8,a4paper,10pt]{ctexart}
+\usepackage[left=2.50cm, right=2.50cm, top=2.50cm, bottom=2.50cm]{geometry} %页边距
+\CTEXsetup[format={\Large\bfseries}]{section} %设置章标题居左
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% -- text font --
+% compile using Xelatex
+%%%%%%%%%%%%%%%%%%%%%%%
+% -- 中文字体 --
+%\setmainfont{Microsoft YaHei}  % 微软雅黑
+%\setmainfont{YouYuan}  % 幼圆    
+%\setmainfont{NSimSun}  % 新宋体
+%\setmainfont{KaiTi}    % 楷体
+%\setmainfont{SimSun}   % 宋体
+%\setmainfont{SimHei}   % 黑体
+% -- 英文字体 --
+%\usepackage{times}
+%\usepackage{mathpazo}
+%\usepackage{fourier}
+%\usepackage{charter}
+\usepackage{helvet}
+
+\usepackage[unicode]{hyperref}
+\usepackage{amsmath, amsfonts, amssymb} % math equations, symbols
+\usepackage[english]{babel}
+\usepackage{color}      % color content
+\usepackage{graphicx}   % import figures
+\usepackage{url}        % hyperlinks
+\usepackage{bm}         % bold type for equations
+\usepackage{multirow}
+\usepackage{gensymb}
+\usepackage{booktabs}
+\usepackage{epstopdf}
+\usepackage{epsfig}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\usepackage{graphicx}
+\usepackage{subfigure}
+\renewcommand{\algorithmicrequire}{ \textbf{Input:}}     % use Input in the format of Algorithm  
+\renewcommand{\algorithmicensure}{ \textbf{Initialize:}} % use Initialize in the format of Algorithm  
+\renewcommand{\algorithmicreturn}{ \textbf{Output:}}     % use Output in the format of Algorithm  
+
+\usepackage{color,xcolor}
+\usepackage{listings}
+\lstset{
+	language={Matlab},
+	numbers=left,numberstyle=\tiny,keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,rulesepcolor=\color{red!20!green!20!blue!20},escapeinside=``,xleftmargin=2em,xrightmargin=2em, aboveskip=1em
+}
+\lstset{breaklines}
+\lstset{extendedchars=false} 
+
+\usepackage{fancyhdr} %设置页眉、页脚
+%\pagestyle{fancy}
+\lhead{}
+\chead{}
+%\rhead{\includegraphics[width=1.2cm]{fig/ZJU_BLUE.eps}}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%  设置水印
+%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{draftwatermark}         % 所有页加水印
+%\usepackage[firstpage]{draftwatermark} % 只有第一页加水印
+\SetWatermarkText{}           % 设置水印内容
+% \SetWatermarkText{\includegraphics{fig/ZJDX-WaterMark.eps}}         % 设置水印logo
+\SetWatermarkLightness{0.9}             % 设置水印透明度 0-1
+\SetWatermarkScale{0.5}                   % 设置水印大小 0-1    
+
+
+\title{\textbf{实验三\ 控制系统频率特性实验}}
+\author{}
+\date{\today}
+
+\def \d {\mathrm{d}}
+\def \celsius{\ensuremath{^\circ\hspace{-0.09em}\mathrm{C}}}
+
+\begin{document}
+	\maketitle
+	\section{实验目的}
+	1.掌握系统或环节的频率特性的测试方法。
+	
+	2.实测二阶系统的频率特性，将实验结果和理论计算作比较，以验证用频率法分析系统的正确性。
+	
+	3.掌握测试仪器设备的使用方法。
+	\section{实验内容及原理说明}
+	在分析和设计控制系统时，首先必须建立被分析系统的数学模型，通常有二种方法来建立：
+	
+	1.用解析的方法，根据元件、系统的输入量与输出量之间的内部关系，通过物理学定理列出微分方程，然后讲行分析研究。
+	
+	2．用实验法，对己有的或选用的元件系统采用实验的方法来建立数学模型，这就是广泛采用的工程方法之一频率法，其优点是可通过图象较准确的反映被测系统或环节的动态特性，并且可用简单的频率响应实验来确定系统或元件的图象，经过对图象分析研宄，求出系统或环节的传递函数。
+	\subsection{实验内容及原理}
+	(1)对图1所示的二阶系统，测出其开环（a、b断开）频率特性（用Bode图表示）。
+	
+	实验原理：频率特性是指在正弦信号作用下，系统输入量的频率0变化到$\infty$时，稳态输出量与输入量的振幅比和相位差的变化规律：其表达式为：$G(j\omega)=A(\omega)e^{j\varphi(\omega)}$
+	
+	式中，$A(\omega)=\left|G(j\omega)\right|=\left|\dfrac{U_{c}(j\omega)}{U_{r}(j\omega)}\right|$ 
+	正弦输出对正弦输入的幅值比（幅频特性）
+	
+	$\varphi(\omega)=\angle G(j\omega)$ 正弦输出对正弦输入的相位差（相频特性〕
+	
+	在被测系统的输入端输入一幅值为$U_{rm}$，频率为$\omega$的正弦电压$U_{r}(t)=U_{rm}\sin\omega t$
+	对于稳定系统，其定输出电压亦为一个正弦电压$U_{c}(t)=U_{cm}\sin(\omega t+\varphi)$
+	在不同频率（$\omega_{1}、\omega_{2}$〕下，测得输入电压幅值$U_{rm1}$、$U_{rm2}$…和输出电压幅值$U_{cm1}$、$U_{cm2}$…经过计算可得被测系统的对数幅频特性$L(\omega)$。
+	
+	在不同频率（$\omega_{1}、\omega_{2}$〕下，测得输入电压$U_{r}$和输出电压$U_{c}$的相位差$\varphi(\omega_{1})$、$\varphi(\omega_{2})$…即可得被测系统的对数相频特性$\varphi(\omega)$。
+	
+	通常对数频率特性曲线(Bode图)：以两条白线来表示系统的频率特性。横坐标常用对数$\lg(\omega)$分度，单位为（$rad/s$〕；对数幅频特性纵坐标为$L(\omega)$,$L(\omega)=20\lg(\left| G(j\omega)\right|)$，单位为$dB$;对数相频特性纵坐标为$\varphi(\omega)$，单位为“$\degree$”（度）。
+	
+	被测系统输入不同频率的正弦电压（亦可把其看作单位正弦输入），输出信号幅值由双通道示波器显示屏上读出，相位差由带移相功能的信号发生器读出。
+	
+	(2)将二阶系统接成闭环（接通图1中a、b两点〕，测量其闭环幅频特性。
+	
+	(3)将二阶系统改为三阶系统（如图，在$A_{3}$反馈电阻上并联$0.1\mu$电容〕，测量三阶系统开环频率特性。
+	
+	\section{实验步骤}
+	1.校核正弦信号，将信号发生器输出的正弦信号接入示波器，观察正弦波形是否正常，并核验示波器测量值与信号发生器设定值的偏差大小。
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=9.5cm,height=4.22cm]{10}
+		\caption{实验系统图}
+	\end{figure}
+
+	2.测量二阶开环系统的幅频特性和相频特性：
+	
+	(1)参考2实验线路，接成二阶开环系统（用$A_{1}$、$A_{2}$模拟两个惯性环节，串联组成）。
+	
+	(2)调节系统的输入正弦电压$U_{r}$的峰值$U_{rpp}$为$1V$。（若发现运放输出出现饱和失真现象，可将输入信号幅值适当调小）实验过程中，根据输出信号的大小合理调整输入信号的大小。
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=13cm,height=6.5cm]{11}
+		\caption{实验电路图}
+	\end{figure}
+
+	(3)记录不同频率下的幅值变化与相位变化数据，即可得到被测系统的对数幅频特性和对数相频特性。测试框图如图2所示，信号发生器每改变一个输出频率，待输出稳定后，在示波器上获得一组输入输出曲线，即可测得输出电压$U_{c}$的峰值、输出与输入信号的相位差$\varphi(\omega)$。实验数据填入表3-1。
+	
+	3.测量二阶闭环系统的幅频特性
+	(1)参考图2的线路，接成二阶闭环系统：（在前面开环基础上，加上$A_{3}$的负反馈）
+	
+	(2)调节系统的输入正弦电压$U_{r}$的峰值$U_{rpp}$为$3-5V$（也可根据实际情况调整）。实验过程中，根据输出信号的大小合理调整输入信号的大小。
+	
+	(3)据表3-2给出的频率测量点，通过示波器测得应频率下系统的输出电压$U_{c}$的峰峰值$U_{cpp}$，填入表3-2。
+	\section{实验数据记录与处理}
+	\subsection{实验数据记录}
+	\begin{table}[h]
+		\caption{表3-1}
+		\centering
+		\begin{tabular}{|l|l|l|l|l|l|l|}
+			\hline
+			$\omega$  & f     & $U_{r}$ & $U_{c}$    & $U_{c}/U_{r}$ & $20\lg U_{c}/U{r}$    & $\varphi(\omega)$ \\ \hline
+			1   & 0.159 & 1  & 26.8  & 26.8  & 28.5627   & -4     \\ \hline
+			2   & 0.318 & 1  & 26    & 26    & 28.2995   & -7     \\ \hline
+			4   & 0.637 & 1  & 25.8  & 25.8  & 28.2324   & -14    \\ \hline
+			8   & 1.274 & 1  & 24.4  & 24.4  & 27.7478   & -26    \\ \hline
+			10  & 1.592 & 1  & 23.2  & 23.2  & 27.3098   & -32    \\ \hline
+			20  & 3.185 & 1  & 17.8  & 17.8  & 25.0084   & -54    \\ \hline
+			30  & 4.777 & 1  & 13.44 & 13.44 & 22.5680   & -68    \\ \hline
+			40  & 6.369 & 1  & 10.64 & 10.64 & 20.5388   & -77    \\ \hline
+			50  & 7.962 & 1  & 8.8   & 8.8   & 18.8897   & -85    \\ \hline
+			60  & 9.554 & 1  & 7.36  & 7.36  & 17.3376   & -91    \\ \hline
+			70  & 11.15 & 1  & 6.2   & 6.2   & 15.8478   & -96    \\ \hline
+			80  & 12.74 & 1  & 5.36  & 5.36  & 14.5833   & -100   \\ \hline
+			90  & 14.33 & 1  & 4.72  & 4.72  & 13.4788   & -104   \\ \hline
+			100 & 15.92 & 1  & 4.16  & 4.16  & 12.3819   & -107   \\ \hline
+			110 & 17.52 & 1  & 3.68  & 3.68  & 11.3170   & -111   \\ \hline
+			120 & 19.11 & 1  & 3.36  & 3.36  & 10.5268   & -114   \\ \hline
+			130 & 20.7  & 1  & 3.08  & 3.08  & 9.7710    & -116   \\ \hline
+			140 & 22.29 & 1  & 2.8   & 2.8   & 8.9432    & -119   \\ \hline
+			150 & 23.89 & 1  & 2.54  & 2.54  & 8.0967    & -121   \\ \hline
+			200 & 31.85 & 1  & 1.72  & 1.72  & 4.7106    & -131   \\ \hline
+			250 & 39.81 & 1  & 1.19  & 1.19  & 1.5109    & -138   \\ \hline
+			300 & 47.77 & 5  & 4.36  & 0.872 & -1.1897   & -144   \\ \hline
+			400 & 63.69 & 5  & 2.62  & 0.524 & -5.6134   & -151   \\ \hline
+			500 & 79.62 & 5  & 1.76  & 0.352 & -9.0691   & -156   \\ \hline
+			600 & 103.5 & 5  & 1.22  & 0.244 & -12.2522  & -160   \\ \hline
+			700 & 111.5 & 10 & 1.88  & 0.188 & -14.5168  & -162   \\ \hline
+			800 & 127.4 & 10 & 1.42  & 0.142 & -16.9542  & -164   \\ \hline
+		\end{tabular}
+	\end{table}
+
+	\textbf{注意：}测量幅频特性时，一般为了读取方便，输入和输出的幅值均取其峰峰值，即$A(\omega)=U_{cpp}(\omega)/U_{rpp}(\omega)$。测量相频特性时，可测量输入与输出峰值间的距离$d_{0}$，并量出输入曲线前后两个峰的距离$d$，则可得到某一频率为$\omega$时的相位差值，$\varphi(\omega_i)=-(\dfrac{d_0}{d}360 \degree )$，若输出超前于输入，则$\varphi >0$，符号应取正：也可用李沙育图形法，将正弦信号的输入信号和被测系统的输出信号分别接到示波器的\textit{X}轴和\textit{Y}轴，就可在示波器上形成一条封闭的曲线，这就是所谓的李沙育图形。（李沙育图形的具体测量方法参照后面的附录说明）。这样，在要求测定的频率范围内逐渐改变输入频率$\omega$，重复上述测量，就可得到一系列对应不同频率$\omega$的幅值比和相位差的值，从而得到被测系统的幅频特性和相频特性曲线。
+	
+	\begin{table}[h]
+		\caption{表3-2}
+		\centering
+		\begin{tabular}{|l|l|l|l|l|}
+			\hline
+			w   & f     & Ur & Uc   & Uc/Ur \\ \hline
+			1   & 0.159 & 1  & 1.1  & 1.1   \\ \hline
+			2   & 0.318 & 1  & 1.05 & 1.05  \\ \hline
+			5   & 0.796 & 1  & 1.07 & 1.07  \\ \hline
+			10  & 1.592 & 1  & 1.06 & 1.06  \\ \hline
+			20  & 3.185 & 1  & 1.07 & 1.07  \\ \hline
+			50  & 7.962 & 1  & 1.08 & 1.08  \\ \hline
+			80  & 12.74 & 1  & 1.11 & 1.11  \\ \hline
+			100 & 15.92 & 1  & 1.17 & 1.17  \\ \hline
+			120 & 19.11 & 1  & 1.18 & 1.18  \\ \hline
+			150 & 23.89 & 1  & 1.26 & 1.26  \\ \hline
+			180 & 28.66 & 1  & 1.34 & 1.34  \\ \hline
+			200 & 31.85 & 5  & 6.84 & 1.368 \\ \hline
+			220 & 35.03 & 5  & 7.16 & 1.432 \\ \hline
+			250 & 39.81 & 5  & 7.56 & 1.512 \\ \hline
+			280 & 44.59 & 5  & 7.52 & 1.504 \\ \hline
+			300 & 47.77 & 5  & 7.2  & 1.44  \\ \hline
+			320 & 50.96 & 5  & 6.72 & 1.344 \\ \hline
+			350 & 55.73 & 5  & 5.8  & 1.16  \\ \hline
+			380 & 60.51 & 5  & 4.84 & 0.968 \\ \hline
+			400 & 63.69 & 5  & 4.32 & 0.864 \\ \hline
+			450 & 71.65 & 5  & 3.18 & 0.636 \\ \hline
+			500 & 79.62 & 5  & 2.46 & 0.492 \\ \hline
+			550 & 87.57 & 10 & 3.92 & 0.392 \\ \hline
+			600 & 95.54 & 10 & 3.16 & 0.316 \\ \hline
+			650 & 103.5 & 10 & 2.62 & 0.262 \\ \hline
+			700 & 111.5 & 10 & 2.22 & 0.222 \\ \hline
+			800 & 127.4 & 10 & 1.7  & 0.17  \\ \hline
+		\end{tabular}
+	\end{table}
+	\subsection{实验数据处理}
+	\subsubsection{表3-1}
+	1.将表3-1实验数据进行整理，在单对数坐标纸上画出二阶开环系统的对数频率特性实验曲线(幅频特性和相频特性)。根据实验Bode图曲线，求系统传递函数。
+	
+	Matlab代码如下：
+    \begin{lstlisting}
+    x=[1 2 4 8 10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 200 250 300 400 500 600 700 800] 
+    y4=[-4 -7 -14 -26 -32 -54 -68 -77 -85 -91 -96 -100 -104 -107 -111 -114 -116 -119 -121 -131 -138 -144 -151 -156 -160 -162 -164]
+    semilogx(x,y4);
+    title('对数频率特性实验曲线');
+    grid on;
+    xlabel('Frequency(rad/s)');ylabel('Phase(deg)');
+    \end{lstlisting}
+    作出图如下：
+    \begin{figure}[h]
+    	\centering
+    	\includegraphics[width=12.5cm,height=5.25cm]{100}
+    	\caption{二阶开环系统的对数频率特性实验曲线}
+    \end{figure}
+	可以测得传递函数大致为$G(j\omega)=\dfrac{26.7}{(\dfrac{j\omega}{20}+1)(\dfrac{j\omega}{200}+1)}$
+	
+	2.根据电路图写出理论开环传递函数，计算系统的转折频率，并画出幅频特性渐近线(和实验曲线画在同一张图上)。比较实验曲线和理论曲线，分析误差原因。
+	
+	由电路图易得开环传递函数为$G(j\omega)=\dfrac{100000}{(j\omega)^2+220j\omega+4000}$
+	函数具有放大环节$K=25$，惯性环节$(\dfrac{j\omega}{20}+1)^{-1}$、$(\dfrac{j\omega}{200}+1)^{-1}$，转折频率分别为$\omega_{1}=20$、$\omega_{2}=200$
+	\begin{lstlisting}
+	num=10^5;
+	den=[1 220 4000];
+	bode(num,den);
+	grid on;
+	\end{lstlisting}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=14.5cm,height=8cm]{101}
+		\caption{理论曲线Bode图}
+	\end{figure}
+	\begin{lstlisting}
+	x=[1 2 4 8 10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 200 250 300 400 500 600 700 800];
+	y1=[28.5627 28.2995 28.2324 27.7478 27.3098 25.0084 22.5680 20.5388 18.8897 17.3376 15.8478 14.5833 13.4788 12.3819 11.3170 10.5268 9.7710 8.9432 8.0967 4.7106 1.5109 -1.1897 -5.6134 -9.0691 -12.2522 -14.5168 -16.9542];
+	
+    y3=20*log10(25)*(x<=20)+(-20*log10(x)+20*log10(25)+20*log10(20)).*(x>20&x<200)+(-40*log10(x)+20*log10(25)+40*log10(200)-20*log10(200)+20*log10(20)).*(x>=200);
+	semilogx(x,y3);
+	hold on;
+	semilogx(x,y1);
+	title('对数频率特性实验曲线');
+	xlabel('Frequency(rad/s)');ylabel('Magnitude(dB)');
+	
+	\end{lstlisting}
+    \begin{figure}[h]
+    	\centering
+    	\includegraphics[width=14.5cm,height=5cm]{102}
+    	\caption{实验曲线和理论曲线}
+    \end{figure}
+
+	可以看出，实验图与理论图大体趋势一致，可以验证理论的正确性。但整体的实验图线和理论图线存在一定的误差，尤其是各个拐点处，其可能的原因如下：
+	
+	(1)测量数据以及实验仪器本身的系统误差
+	
+	(2)幅角的渐近线的理论计算本身存在近似
+	
+	3.根据实验得到的开环幅频特性，分析闭环系统的稳定性和品质指标，并说明理由。
+	
+	开环幅频特性：二阶系统中各参数均为正值，因此开环稳定。
+	轨迹如图所示：
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=5cm,height=4cm]{104}
+		\caption{}
+	\end{figure}
+
+	根据实验所测得的图可得增益裕量为无穷大，相位裕量为$40\degree$。
+	\subsubsection{表3-2}
+	4.根据表3-2数据，在单对数坐标纸上画出闭环系统的幅频特性实验曲线(纵坐标可用相对幅值$U_{c}/U_{r}$或者对数幅值$20\lg U_{c}/U{r}$)。并在实验曲线上求出实验的谐振峰值$M_{r}$、谐振频率$\omega_{r}$、系统截止频率$\omega_{b}$等数值，与理论值做比较。
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=15cm,height=7cm]{105}
+		\caption{闭环系统的幅频特性实验曲线}
+	\end{figure}
+	\begin{lstlisting}
+	x=[1 2 5 10 20 50 80 100 120 150 180 200 220 250 280 300 320 350 380 400 450 500 550 600 650 700 800];
+	y5=[1.1 1.05 1.07 1.06 1.07 1.08 1.11 1.17 1.18 1.26 1.34 1.368 1.432 1.512 1.504 1.44 1.344 1.16 0.968 0.864 0.636 0.492 0.392 0.316 0.262 0.222 0.17];
+	semilogx(x,y5);
+	grid on;
+	\end{lstlisting}
+	
+	由闭环函数可得理论值：$\omega_{r}=\omega_{n}\sqrt{1-2\xi^2}=282.52,M_{r}=\dfrac{1}{2\xi\sqrt{1-2\xi^2}}=1.56,\omega_{b}=459.26$
+	
+	由图可得$M_{r}=1.51$,$\omega_{r}=278$,$\omega_{b}=447$
+	
+	可以看到实验值与理论值基本相等，无明显误差。
+	\section{思考题}
+	\subsection{}
+	1.简述什么是控制系统的频率特性？幅频特性和相频特性如何通过实验测量得到？
+	
+	系统在正弦信号的作用下，当输入量频率由0变换到$\infty$时，稳态输出量与输入量的幅值比和相位差的变化规律叫做系统的频率特性。
+	
+	幅频特性和相频特性可通过记录不同频率下的幅值变化与相位变化数据。
+	\subsection{}
+	2.频率特性的几何表示有几种方法？每种表示方法的具体含义？
+	
+	一般有3种，Nyquist图与Bode图
+	
+	Nyquist图为幅相频率特性图，能在一幅图上表示出系统在整个频率范围内的频率响应特性，但与Bode图相比不能清楚地表明开环传递函数中每个因子对系统的具体影响，以及幅值及相位角与频率之间关系不直观；Bode图通过获得频率特性辨识系统，由对数幅频特性图和对数相频特性图组成，能较为方便地进行频域矫正；尼柯尔斯曲线为对数幅相频率特性曲线以$\omega$为参变量，$\varphi(\omega)$为横坐标，$L(\omega)$为纵坐标。
+	
+	\subsection{}
+	3.实验中，如何合理选择输入正弦信号的幅值？幅值太大或太小会出现什么问题？
+	
+	可先根据实验参数，计算正弦信号的大致范围，然后调节。
+	
+	幅值太大会导致波形超出线性变化范围，从而导致失真现象的出现；幅值太小会导致波形测量值过小，且使波形易受到干扰，对测量精度造成影响
+	\subsection{实验建议}
+	暂无。
+	\end{document}

@@ -1,0 +1,345 @@
+\documentclass[UTF8,a4paper,10pt]{ctexart}
+\usepackage[left=2.50cm, right=2.50cm, top=2.50cm, bottom=2.50cm]{geometry} %页边距
+\CTEXsetup[format={\Large\bfseries}]{section} %设置章标题居左
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% -- text font --
+% compile using Xelatex
+%%%%%%%%%%%%%%%%%%%%%%%
+% -- 中文字体 --
+%\setmainfont{Microsoft YaHei}  % 微软雅黑
+%\setmainfont{YouYuan}  % 幼圆    
+%\setmainfont{NSimSun}  % 新宋体
+%\setmainfont{KaiTi}    % 楷体
+%\setmainfont{SimSun}   % 宋体
+%\setmainfont{SimHei}   % 黑体
+% -- 英文字体 --
+%\usepackage{times}
+%\usepackage{mathpazo}
+%\usepackage{fourier}
+%\usepackage{charter}
+\usepackage{helvet}
+
+\usepackage[unicode]{hyperref}
+\usepackage{amsmath, amsfonts, amssymb} % math equations, symbols
+\usepackage[english]{babel}
+\usepackage{color}      % color content
+\usepackage{graphicx}   % import figures
+\usepackage{url}        % hyperlinks
+\usepackage{bm}         % bold type for equations
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{epstopdf}
+\usepackage{epsfig}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\usepackage{graphicx}
+\usepackage{subfigure}
+\renewcommand{\algorithmicrequire}{ \textbf{Input:}}     % use Input in the format of Algorithm  
+\renewcommand{\algorithmicensure}{ \textbf{Initialize:}} % use Initialize in the format of Algorithm  
+\renewcommand{\algorithmicreturn}{ \textbf{Output:}}     % use Output in the format of Algorithm  
+
+\usepackage{listings}
+\lstset{language=Matlab}
+
+\usepackage{fancyhdr} %设置页眉、页脚
+%\pagestyle{fancy}
+\lhead{}
+\chead{}
+%\rhead{\includegraphics[width=1.2cm]{fig/ZJU_BLUE.eps}}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%  设置水印
+%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{draftwatermark}         % 所有页加水印
+%\usepackage[firstpage]{draftwatermark} % 只有第一页加水印
+\SetWatermarkText{}           % 设置水印内容
+% \SetWatermarkText{\includegraphics{fig/ZJDX-WaterMark.eps}}         % 设置水印logo
+\SetWatermarkLightness{0.9}             % 设置水印透明度 0-1
+\SetWatermarkScale{0.5}                   % 设置水印大小 0-1    
+
+
+\title{\textbf{气体状态特性测量实验报告}}
+\author{}
+\date{\today}
+
+\def \d {\mathrm{d}}
+\def \celsius{\ensuremath{^\circ\hspace{-0.09em}\mathrm{C}}}
+
+\begin{document}
+	\maketitle
+	\section{简述实验目的及原理}
+	\subsection{实验目的}
+	1．理解理想气体状态方程与实际气体压缩因子的含义；
+	
+	
+	2．掌握$PVT$等温膨胀法的基本原理和实验操作方法；
+	
+	
+	3．掌握循环浴，真空泵的使用方法；
+	
+	
+	4．掌握测定氮气的$PVT$数据和计算氮气密度的方法。
+	
+	
+	\subsection{实验原理}
+	实际气体对理想气体性质的偏离可用压缩因子$Z$表示：
+	\begin{align}
+	Z=\dfrac{pV}{nRT}
+	\end{align}
+	式中：$p$为气体压力，$T$为气体温度，$n$为气体的摩尔质量，$R$为摩尔气体常数。
+	
+	利用等温膨胀的方法，测量气体工质的压缩因子，然后利用气体压缩因子的定义计算得到气体密度，避免了测量容积的体积标定和气体质量的称量，实验的测量结果具有较高的精度。
+	实验本体主要由两个容器构成，分别为主容器$A$（容积为$V_{A}$）和膨胀容器$B$（容积为$V_{B}$），容器间通过阀门连接，将整个装置置于恒温环境中以保证等温膨胀过程。
+    \begin{figure}[h]
+	\centering
+	\includegraphics[width=9.4cm,height=4.95cm]{1}
+	\caption{ $Burnett$法测量气相$PVT$性质原理图}
+    \end{figure}
+
+    首先向处于真空状态的主容器中充入一定量的待测气体工质。此时，膨胀容器处于真空状态。主容器内状态方程可以表示为：
+    \begin{align}
+    p_{0}V_{A}=n_{0}Z_{0}RT
+    \end{align}
+    
+    打开膨胀阀，则气体将由主容器向膨胀容器流动，等到温度和压力再次平衡后，主容器中的气体压力记为p1。膨胀后主容器和膨胀容器内的压力相同，且两个容器内氮气的摩尔数与膨胀前主容器内的摩尔数相同。此时，两个容器内的状态方程可以表示为：
+    \begin{align}
+    p_{1}(V_{A}+V_{B})=n_{0}Z_{1}RT
+    \end{align}
+    
+    第二次膨胀前，主容器内充满气体工质，膨胀容器处于真空状态。主容器内状态方程可以表示为：
+    \begin{align}
+    p_{1}V_{A}=n_{1}Z_{1}RT
+    \end{align}
+    
+    第二次膨胀后，两个容器内的状态方程可以表示为： 
+    \begin{align}
+    p_{2}(V_{A}+V_{B})=n_{1}Z_{2}RT
+    \end{align}
+    
+    同理，第r次膨胀前，主容器内的状态方程为：
+    \begin{align}
+    p_{r-1}V_{A}=n_{r-1}Z_{r-1}RT
+    \end{align}
+    
+    第r次膨胀后，两容器内的状态方程为：
+    \begin{align}
+    p_{r}(V_{A}+V_{B})=n_{r-1}Z_{r}RT
+    \end{align}
+    
+    由式(6)和式(7)可得：
+    \begin{align}
+    \dfrac{p_{r-1}}{p{r}}=\dfrac{V_{A}+V_{B}}{V_{A}}\dfrac{Z_{r-1}}{Z_{r}}
+    \end{align}
+    
+    将两容器体积之和与主容器体积之比记为容积常数$N$，即：
+    \begin{align}
+    N=\dfrac{V_{A}+V_{B}}{V_{A}}
+    \end{align}
+    
+    每次膨胀过程可以简化为：
+    \begin{align}
+    \dfrac{p_{r-1}}{p{r}}=N\dfrac{Z_{r-1}}{Z_{r}}
+    \end{align}
+    
+    由式(10)易得：
+    \begin{align}
+    \dfrac{p_{r-1}}{p{r}}=N^{r}\dfrac{Z_{r-1}}{Z_{r}}
+    \end{align}
+    
+    则第r次时的压缩因子可表示为：
+    \begin{align}
+    Z_{r}=N^{r}\dfrac{Z_{r-1}}{p_{0}}p_{r}
+    \end{align}
+    
+    记$A=\dfrac{Z_{0}}{p_{0}}$为充气常数。
+    因此，只要知道容积常数$N$和充气常数$A$就可以求得压缩因子$Z_{r}$。再由式(11)即可计算得到气体比容和密度。
+    \section{实验装置及测量系统}
+    1.本实验装置主要由PVT测量装置本体、恒温槽$C$、真空系统$E$、待测样品$D$和计算机$F$等组成。如图2所示。
+    \begin{figure}[h]
+    	\centering
+    	\includegraphics[width=12cm,height=7cm]{2}
+    	\caption{ PVT测量实验装置示意图}
+    \end{figure}
+
+    2.PVT测量装置本体由主容器A、膨胀容器B、铂电阻温度计G、压力传感器及连接管线和阀门组成。在测试过程中，主容器A和膨胀容器B浸没在水浴中。PVT测量装置本体外壳填充保温材料，前后装有视窗方便观察。 
+    
+    3. 实验中容器A和容器B的温度保持在某一给定的值，由恒温槽提供水浴进行控制。
+    
+    \section{实验操作过程的简要描述} 
+    1.连接实验设备，打开真空泵。
+    
+    2.打开膨胀阀、排样阀1，保证排样阀2关闭，打开真空阀。
+    
+    3.当真空泵中压力小于10Pa时可开始实验，停止抽真空，关闭真空阀、排样阀1。
+    
+    4.开启进样阀，通入少量氮气，关闭进样阀，再次重复2、3。在开启排样阀1前先打开排样阀2将高压气体排入大气，减少对真空泵的损伤。
+    
+    5.打开进样阀充入4MPa压力的氮气，随后关闭进样阀。
+    
+    6.打开$PVT$ $Measurement$软件，等到温度压力稳定后，记录此时的温度和压力值。
+    
+    7.打开膨胀阀进行膨胀，等温度压力稳定之后，膨胀过程结束，记录此时的温度和压力值$p_{1}$。关闭膨胀阀，打开排样阀1、排样阀2将膨胀容器$V_{B}$中气体放出，随后关闭排样阀2，打开真空阀对膨胀容器$V_{B}$抽真空，保持3-5min，随后关闭所有阀门。重复以上步骤，依次测量$p_{2}$、$p_{3}$…$p_{r}$，重复5~6次或主容器内压力达到300-400kPa后，结束本实验。
+    \section{实验数据记录} 
+    实验数据表格为：
+    
+        \begin{tabular}{|c|c|c|}
+    	\hline 
+    	膨胀次数r & $T/K$ & $p/kPa$ \\ 
+	    \hline
+    	0 & 324.268 & 3738.791 \\
+	    \hline
+    	1 & 324.242 & 2480.683 \\
+    	\hline
+	    2 & 324.230 & 1649.832 \\
+    	\hline
+	    3 & 324.218 & 1095.272 \\
+    	\hline
+    	4 & 324.211 & 728.223 \\
+    	\hline
+    	5 & 324.212 & 483.510 \\
+    	\hline
+    	6 & 324.208 & 320.503 \\
+    	\hline
+        \end{tabular}
+\section{实验数据处理}
+    \subsection{数据处理方法}
+    在求解气体常数$N$时，多采用文献中的经典表达式：
+    \begin{align}
+    \dfrac{p_{r-1}}{p_{r}}=N+B(N-1)p_{r-1}
+    \end{align}
+    
+    利用最小二乘法对实验测得的一系列压力值进行处理就可以得到$N$值。
+    
+    对于充气常数$A$，采用下面的方法进行计算。
+    
+    维里方程可以用压力的幂级数来表示：
+    \begin{align}
+    Z_{r}=\dfrac{p_{r}v}{R_{g}T}=1+Bp_{r}+Cp^{2}_{r}+Dp^{3}_{r}+...
+    \end{align}
+    
+    将式(14)代入式(12)可得：
+    \begin{align}
+    N^{r}\dfrac{Z_{0}}{p_{0}}p_{r}=1+Bp_{r}+Cp^{2}_{r}+Dp^{3}_{r}+...
+    \end{align}
+    
+    式(15)可写为：
+    \begin{align}
+    N^{r}p_{r}=\dfrac{1}{A}+B^{'}p_{r}+C^{'}p^{2}_{r}+D^{'}p^{3}_{r}+...
+    \end{align}
+    
+    利用最小二乘法对实验测得的一系列压力值进行处理就可以得到$A$值。再结合式(12)和式(1)就可以得到不同压力下的气体比容和密度。
+    \subsection{计算容积常数$N$}
+    \begin{tabular}{|c|c|c|c|c|}
+    	\hline 
+    	膨胀次数r & $T/K$ & $p/kPa$ & $p_{r-1}/p_{r}$ & $p_{r-1}$ \\ 
+    	\hline
+    	0 & 324.268 & 3738.791 &  &  \\
+    	\hline
+    	1 & 324.242 & 2480.683 & 1.5072 & 3738.791 \\
+    	\hline
+    	2 & 324.230 & 1649.832 & 1.5036 & 2480.683 \\
+    	\hline
+    	3 & 324.218 & 1095.272 & 1.5063 & 1649.832 \\
+    	\hline
+    	4 & 324.211 & 728.223 & 1.5040 & 1095.272 \\
+    	\hline
+    	5 & 324.212 & 483.510 & 1.5061 & 728.223 \\
+    	\hline
+    	6 & 324.208 & 320.503 & 1.5086 & 483.510 \\
+    	\hline
+    \end{tabular}
+
+    通过式(13)，由$p_{r-1}/p_{r}\~{}p_{r-1}$关系，并利用Matlab的最小二乘法计算，代码如下：
+    \begin{lstlisting}
+    x=[3738.791 2480.683 1649.832 1095.272 728.223 483.51];
+    y=[1.5072 1.5036 1.5063 1.5040 1.5061 1.5086];
+    N=polyfit(x,y,1);
+    N
+    \end{lstlisting}
+    得到N$=1.5063$
+    \subsection{计算充气常数$A$}
+    \begin{tabular}{|c|c|c|c|}
+    	\hline 
+    	膨胀次数r & $T/K$ & $p/kPa$ & $p_{r}N^{r}$ \\ 
+    	\hline
+    	0 & 324.268 & 3738.791 & 3738.791\\
+    	\hline
+    	1 & 324.242 & 2480.683 & 3736.653 \\
+    	\hline
+    	2 & 324.230 & 1649.832 & 3743.369 \\
+    	\hline
+    	3 & 324.218 & 1095.272 & 3743.315 \\
+    	\hline
+    	4 & 324.211 & 728.223 & 3748.956 \\
+    	\hline
+    	5 & 324.212 & 483.510 & 3749.409 \\
+    	\hline
+    	6 & 324.208 & 320.503 & 3743.699 \\
+    	\hline
+    \end{tabular}
+
+    通过式(16)，由$p_{r}N^{r}\~{}p_{r}$关系，并利用Matlab的最小二乘法计算，代码如下：
+    \begin{lstlisting}
+    x=[3738.791 2480.683 1649.832 1095.272 728.223 483.51 320.503];
+    y=[3738.791 3736.653 3743.369 3743.315 3748.956 3749.409 3743.699];
+    a=polyfit(x,y,3);
+    a  %此处求得的a即公式(16)中截距1/A
+    \end{lstlisting}
+    得$\dfrac{1}{A}=3743$,即$A=0.0002672$
+    \subsection{计算气体密度}
+    根据式(12)和式(1)可计算得气体密度：
+    
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline 
+    $T/K$ & $p/kPa$ & $Z$ & $ \rho/mol·dm^{-3}$ & $\rho/kg·m^{-3}$ \\ 
+    \hline
+    324.268 & 3738.791 & 0.99900 & 1.38811 & 38.86703 \\
+    \hline
+    324.242	& 2480.683 & 0.99843 & 0.92161 & 25.80505 \\
+    \hline
+    324.230 & 1649.832 & 1.00023 & 0.61186 & 17.13205 \\
+    \hline
+    324.218 & 1095.272 & 1.00021 & 0.40621 & 11.37402 \\
+    \hline
+    324.211 & 728.223 & 1.00172 & 0.26968 & 7.55113 \\
+    \hline
+    324.212 & 483.51 & 1.00184 & 0.17904 & 5.01301 \\
+    \hline
+    324.208 & 320.503 & 1.00032 &	0.11886 & 3.32807 \\
+    \hline	
+    \end{tabular}
+
+    气体密度$\rho$的数据为表格后两列。
+	\section{实验分析及思考题}
+	\subsection{}
+	1.请分析实验中有哪些因素会带来测试数据误差?
+	
+	(1)仪器的密封性，就算仪器阀门密封再好，开关时还是会存在少量气体泄漏；
+	
+	(2)实验前抽真空状态后剩余的几$pa$压强的在仪器内残留的空气；
+	
+	(3)读数时温度未完全稳定；
+	\subsection{}
+	2.压缩因子受什么因素影响，如何减少影响以提高气体密度测量精度？
+	
+	通过表中数据，可以看到随着容器中气体密度的下降，$Z$也随之下降，因此压缩因子受到固定体积内气体分子数量的影响，分子数量越少，压强越小，压缩因子越小。同时根据公式(1)：$Z=\dfrac{pV}{nRT}$可看出$Z$的定义是根据理想气体来定义的，而理想气体本身忽略了气体分子本身的体积和分子间的相互作用力，因此$Z$还可能受分子间相互作用力的影响。
+	
+	为提高气体密度测量的精度，我们应选择在测量温度的时候选择多次测量温度选择平均值以减少温度的不稳定带来的误差。其次可以选择在较高的压强下开始试验，用多组压强较高的数据进行计算可排除一部分分子间相互作用力的影响。
+	\subsection{}
+	3.视频实验中老师提及的主要注意事项有哪些？
+
+    (1)在实验结束后，容器内压强虽然不是太高，但仍然可能对真空泵产生危害，依旧需要先向大气通气降压，再使用真空泵。
+
+	(2)在向大气降压的过程中应注意及时关闭阀门，使仪器内气体略高于大气压力，不要排空仪器内气体，防止空气倒流。
+	
+	(3)先关闭循环电源，再关闭监测设备电源，再关闭其他设备电源，最后关闭真空泵开关。
+	\section{实验心得}
+	本次实验是第二次热力学实验，通过这次实验，我理解了压缩因子是基于什么定义的以及影响压缩因子的两个因素，掌握了氮气的$PVT$数据的测定和计算氮气密度的方法，视频中也仔细的讲解了实验设备，真空泵，$PVT$ $Measurement$软件等的用法，更好地将理论与现实结合。遗憾的是由于疫情原因，我不能前往实验室亲手操作实验仪器，希望未来有机会前往实验中心操作一次设备，学到更多的操作知识。
+	\end{document}
