@@ -1,0 +1,179 @@
+\documentclass[UTF8,a4paper,10pt]{ctexart}
+\usepackage[left=2.50cm, right=2.50cm, top=2.50cm, bottom=2.50cm]{geometry} %页边距
+\CTEXsetup[format={\Large\bfseries}]{section} %设置章标题居左
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% -- text font --
+% compile using Xelatex
+%%%%%%%%%%%%%%%%%%%%%%%
+% -- 中文字体 --
+%\setmainfont{Microsoft YaHei}  % 微软雅黑
+%\setmainfont{YouYuan}  % 幼圆    
+%\setmainfont{NSimSun}  % 新宋体
+%\setmainfont{KaiTi}    % 楷体
+%\setmainfont{SimSun}   % 宋体
+%\setmainfont{SimHei}   % 黑体
+% -- 英文字体 --
+%\usepackage{times}
+%\usepackage{mathpazo}
+%\usepackage{fourier}
+%\usepackage{charter}
+\usepackage{helvet}
+
+\usepackage[unicode]{hyperref}
+\usepackage{amsmath, amsfonts, amssymb} % math equations, symbols
+\usepackage[english]{babel}
+\usepackage{color}      % color content
+\usepackage{graphicx}   % import figures
+\usepackage{url}        % hyperlinks
+\usepackage{bm}         % bold type for equations
+\usepackage{multirow}
+\usepackage{gensymb}
+\usepackage{booktabs}
+\usepackage{epstopdf}
+\usepackage{epsfig}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{hyperref}
+\renewcommand{\algorithmicrequire}{ \textbf{Input:}}     % use Input in the format of Algorithm  
+\renewcommand{\algorithmicensure}{ \textbf{Initialize:}} % use Initialize in the format of Algorithm  
+\renewcommand{\algorithmicreturn}{ \textbf{Output:}}     % use Output in the format of Algorithm  
+
+\usepackage{color,xcolor}
+\usepackage{listings}
+\lstset{extendedchars=false} 
+
+\usepackage{fancyhdr} %设置页眉、页脚
+%\pagestyle{fancy}
+\lhead{}
+\chead{}
+%\rhead{\includegraphics[width=1.2cm]{fig/ZJU_BLUE.eps}}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+\title{\textbf{《低温技术及其应用》热电偶低温标定实验}}
+\author{}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	\section{实验目的}
+	
+	1、掌握利用热电偶进行低温测量的基本原理;
+	
+	2、掌握T型热电偶的制作方法;
+	
+	3、了解热电偶低温标定的特点并能够分析测量误差;
+	
+	4、掌握在冰点及以下对热电偶进行标定的方法;
+	
+	5、 了解热电偶冷端补偿的方法及意义。
+	
+	\section{实验原理}
+	\subsection{热电偶测温原理}
+	
+	将两种不同材料的导体或半导体A和B焊接起来，构成一个闭合回路。当点T1和T2之间存在温差时，两者之间便产生热电势，因而在回路中形成电流，这种现象称为热电效应。热电偶就是利用这一效应来工作的。
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.65\textwidth]{tushi.png}
+		\caption{热电偶示意图}
+	\end{figure}
+	\subsection{T型热电偶的特点}
+	
+	(1)T型热电偶由康铜丝和铜丝焊接而成。
+	
+	(2)测量精度高。热电偶与被测对象直接接触，不受中间介质的影响。
+	
+	(3)使用方便、构造简单。
+	
+	(4)测量范围大。T型热电偶的测温范围大概在-200\textcelsius$\sim $350\textcelsius，适用于大部分低温测量。
+	
+	(5) T型热电偶使用时不会产生热量，避免低温工质的蒸发。
+	
+	\subsection{T型热电偶冷端补偿原理}
+	
+	热电偶热电势的大小与其两端的温度差有关。如果参考端温度随环境自由变化，会引起测量误差。为了消除这种误差，可采用对冷端温度进行补偿的方式。冰点补偿法是精密测量中常用的一种温度补偿方法，即在测量时将热电偶的参考端置于0\textcelsius 环境中，则所测得的热电势可反映工作端的实际被测温度。
+	
+	\section{实验步骤}
+	
+	1、制作T型热电偶：
+	
+	将铜丝与康铜丝打磨后，一头使用点焊机焊在一起另一头分别接至数据采集仪;
+	
+	2、将热电偶连接至数据采集仪：
+	
+	铜丝连正极，康铜丝连负极，我们小组连接的是14号通道;
+	
+	3、用热电偶分别测量冰水混合物、液氮沸点、无水乙醇凝固点温度，并记录热电势数据;
+	
+	4、采用冰点补偿方法后，重复测量步骤3中的三个温度标定点的热电势数据。（冰点补偿方法：康铜丝策再接一根铜丝以消除误差影响）
+	
+	\section{实验设备及材料}
+	
+	1、热电偶点焊机;
+	
+	2、数据采集仪;
+	
+	3、铜线、康铜线;
+	
+	4、液氮、无水乙醇、水等工质。
+	
+	\section{实验数据记录}
+	
+	\subsection{记录热电势数据}
+	
+	无温度补偿：
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{|l|l|l|l|l|}
+			\hline
+			工质/读数 & 第1次 & 第2次 & 第3次 & 平均值 \\ \hline
+			冰水混合物 & -0.908mV & -0.910mV & -0.900mV & -0.9060mV \\ \hline
+			液氮 & -6.333mV & -6.331mV & -6.331mV & -6.3317mV \\ \hline
+			无水乙醇 & -4.690mV & -4.618mV & -4.629mV & -4.6457mV \\ \hline
+		\end{tabular}
+	\end{table}
+
+	有温度补偿：
+	
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{|l|l|l|l|l|}
+			\hline
+			工质/读数 & 第1次 & 第2次 & 第3次 & 平均值 \\ \hline
+			冰水混合物 & 0.005mV & 0.012mV & 0mV & 0.0057mV \\ \hline
+			液氮 & 5.418mV & 5.422mV & 5.420mV & 5.4200mV \\ \hline
+			无水乙醇 & 3.066mV & 3.110mV & 3.021mV & 3.0657mV \\ \hline
+		\end{tabular}
+	\end{table}
+	\subsection{热电偶标定与拟合}
+	\textbf{分别采用有补偿与无补偿的方式进行热电偶标定，制作拟合曲线，并与ITS-90标准分度表进行对比。分析不同数据间的差异及原因。}
+	
+	查阅资料得：冰水混合物温度0\textcelsius，液氮沸点温度-196.5\textcelsius，无水乙醇固液混合物-114.1\textcelsius，换算为热力学温标分别为273K，76.5K，158.9K。
+	
+	那么与电势分别对应，用origin作图得：
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.65\textwidth]{WU.eps}
+		\caption{无温度补偿下热电偶的标定}
+	\end{figure}
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.65\textwidth]{YOU.eps}
+		\caption{有温度补偿下热电偶的标定}
+	\end{figure}
+	
+	查$ITS-90$标准分度表(https://srdata.nist.gov/its90/download/type\_t.tab)得，以0\textcelsius 作为基准点时：0\textcelsius 对于-196.5\textcelsius 用线性插值算得为-5.546mV、对于-114.1\textcelsius 用线性插值算得为-3.668mV。
+	\subsection{结果分析}
+	对比来看，有温度补偿时误差比起无温度补偿时差别要小一些。这就体现了对于热电偶测量温度，温度补偿的必要性。对于已制作好的的热电偶，当参比端温度恒定时，则总的热电动势就成为测量端温度的单值函数。即一定的热电势对应着一定的温度，而热电偶的分度表中，参比端温度均为零。但在应用现场，参比端温度千差万别，不可能都恒定在零，这就会产生测量误差，为了保证测量结果的准确性，就要对热电偶冷端进行温度补偿。
+	
+	对于有补偿时候的误差来源，我认为可能是热电偶接触时液氮和无水乙醇的强烈沸腾反应导致存在了一定的误差。另外我们的读数变成了正的，这是由于补偿导线接反了导致的。另外接线由于经过打磨和焊接，焊点的厚度可能不太均匀从而存在一定的电阻导致存在一定误差。
+	\section{实验感想}
+	
+\end{document}

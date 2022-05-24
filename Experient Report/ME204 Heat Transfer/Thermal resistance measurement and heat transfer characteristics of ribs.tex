@@ -1,0 +1,226 @@
+\documentclass[UTF8,a4paper,10pt]{ctexart}
+\usepackage[left=2.50cm, right=2.50cm, top=2.50cm, bottom=2.50cm]{geometry} %页边距
+\CTEXsetup[format={\Large\bfseries}]{section} %设置章标题居左
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% -- text font --
+% compile using Xelatex
+%%%%%%%%%%%%%%%%%%%%%%%
+% -- 中文字体 --
+%\setmainfont{Microsoft YaHei}  % 微软雅黑
+%\setmainfont{YouYuan}  % 幼圆    
+%\setmainfont{NSimSun}  % 新宋体
+%\setmainfont{KaiTi}    % 楷体
+%\setmainfont{SimSun}   % 宋体
+%\setmainfont{SimHei}   % 黑体
+% -- 英文字体 --
+%\usepackage{times}
+%\usepackage{mathpazo}
+%\usepackage{fourier}
+%\usepackage{charter}
+\usepackage{helvet}
+
+\usepackage[unicode]{hyperref}
+\usepackage{amsmath, amsfonts, amssymb} % math equations, symbols
+\usepackage[english]{babel}
+\usepackage{color}      % color content
+\usepackage{graphicx}   % import figures
+\usepackage{url}        % hyperlinks
+\usepackage{bm}         % bold type for equations
+\usepackage{multirow}
+\usepackage{gensymb}
+\usepackage{booktabs}
+\usepackage{epstopdf}
+\usepackage{epsfig}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{hyperref}
+\renewcommand{\algorithmicrequire}{ \textbf{Input:}}     % use Input in the format of Algorithm  
+\renewcommand{\algorithmicensure}{ \textbf{Initialize:}} % use Initialize in the format of Algorithm  
+\renewcommand{\algorithmicreturn}{ \textbf{Output:}}     % use Output in the format of Algorithm  
+
+\usepackage{color,xcolor}
+\usepackage{listings}
+\lstset{breaklines}
+\lstset{extendedchars=false} 
+
+\usepackage{fancyhdr} %设置页眉、页脚
+%\pagestyle{fancy}
+\lhead{}
+\chead{}
+%\rhead{\includegraphics[width=1.2cm]{fig/ZJU_BLUE.eps}}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+\title{\textbf{热阻测量及肋片传热特性实验}}
+\author{}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	热阻是传热过程中非常重要的概念，也是传热过程控制的主要对象，对其深入理解有利于实际传热问题的正确分析和热设计。延展体导热是增大传热量的一种非常常用的手段，其对传热过程的影响与热阻密不可分。
+	
+	
+	
+	\section{实验目的及要求}
+	(1)深入理解导热热阻、对流传热热阻
+	
+	(2)将热阻的概念应用于被加热表面和它所处的环境，并研究延展体表面对传热过程的影响
+	
+	\section{基本原理}
+	一个被电加热片加热的水平薄板，平板下部和边界均被很好地绝热，暴露的上表面被抛光。从风洞的气流吹过被加热板的上表面，风的速度$u_\infty$。和温度$t_\infty$。图1中给出了实验对象示意图。
+	
+	整个装置处于稳态时，不考虑表面热辐射的情况下，以下用不同计算方式计算得出的热量相等：
+	\begin{align*}
+	&Q=IV=I^{2}R=\dfrac{V^{2}}{R}\\
+	&Q_{\text{导}}=-\lambda A_{1}\dfrac{dt}{dx}\\
+	&Q_{\text{对}}=-h A_{1}(t_{w}-t_{f})
+	\end{align*}
+	
+	其中：$A_{1}$为上表面面积
+	
+	通过测量电加热的电压和电热，以及壁面温度，就可以确定上表面侧的导热热阻和对流换热热阻。
+	
+	当上表面加1根和多根圆柱棒的延展体后(如图2所示)，假设圆柱表面的换热系数和没有圆柱棒情下的上表面换热系数相等，则根据肋面效率公式可以得到:
+	
+	圆柱的肋效率为：
+	
+	$$\eta_{f}=\dfrac{\tanh (mH)}{mH}$$
+	
+	其中：$$m=\sqrt{\dfrac{4h}{\lambda d}}$$
+	
+	整个表面肋面中效率：
+	
+	$$\eta_{o}=\dfrac{A_{1}+\eta_{f}A_{2}}{A_{o}}$$
+	
+	则总热阻为：
+	
+	$$R_{tot}=\dfrac{\delta}{\lambda A_{i}}+\dfrac{h}{h\eta_{o}A_{o}}$$
+	\section{实验装置及操作步骤}
+	具体实验装置的实物见实验室布置。
+	
+	主要使用的有风机、加热器、变压器、铝板、肋柱、T型热电偶（铜-康铜）、风速计、万用表、游标卡尺、银硅脂。另外，本实验使用Labview程序进行数据的采集。
+	
+	(1)将加热器摆放至距离风机$15-20cm$处。
+	
+	(2)使用万用表测量电加热片电阻，用以确定加热功率。
+	
+	(3)测量被加热铝板的长、宽，肋片长、直径。
+	
+	(4)铝板光滑面朝上，另一面压实在加热板上。用高温胶带将热电偶粘贴在铝板的上表面中心区域。
+	
+	(5)将3根热电偶铜丝连接采集器的正极，康铜丝连接负极，记录3根热电偶编号。
+	
+	(6)打开电脑软件，选择T型号。加热器与变压器相连，开始时变压器输入电压为50V，铝板上表面到$60-65\textcelsius$时后调整并测量变压器输出电压为$25-30V$。
+	
+	(7)开启风机，调节风机频率至平板上表面温度稳定，测量铝板中心上方风速。
+	
+	(8)用银硅脂将热电偶与柱体另一端均匀粘贴在铝板上，状态平衡后记录铝板上表面、柱体上下表面温度。
+	
+	(9)用银硅脂再粘贴2个相同的柱体，状态平衡后记录板表温度。
+	
+	(10)实验后整理实验台、关闭电源后但不关闭风机（加速降温），待温度有所降低之后再关闭风机。
+		
+	\section{实验数据记录}
+	\subsection{原始数据}
+	\begin{table}[h]
+		\begin{tabular}{|l|l|}
+			\hline
+			参数 & 测试数据 \\ \hline
+			电压(V) & 60 \\ \hline
+			电阻($\Omega$) & 21.2 \\ \hline
+			光板上表面长度(cm) & 14.978 \\ \hline
+			光板上表面宽度(cm) & 14.982 \\ \hline
+			光板上表面表面积($cm^{2}$) & 224.4 \\ \hline
+			铝板厚度(cm) & 0.334 \\ \hline
+			圆柱直径(cm) & 1.200 \\ \hline
+			圆柱长度均值(cm) & 5.012 \\ \hline
+			壁面温度(\textcelsius) & 20.77 \\ \hline
+			空气来流温度(\textcelsius) & 23 \\ \hline
+			空气来流速度(m/s) & 1.9 \\ \hline
+			平板导热系数($W/m\cdot{k}$) & 160 \\ \hline
+			热电偶编号 & 13 30 15 \\ \hline
+		\end{tabular}
+	
+	\end{table}
+	\subsection{计算与分析}
+	电流热功率$Q=IV=I^{2}R=\dfrac{V^{2}}{R}=\dfrac{25^{2}}{21.2}=29.48W$
+	\subsubsection{不安放圆柱时}
+	贴在平板中间的热电偶编号：13
+	
+	热电阻测量温度$t_{1} = 68.7$\textcelsius
+	
+	标定后平板温度$t_{w1} = 67.01$\textcelsius
+	
+	总热阻$R_{tot} = \dfrac{\delta}{\lambda A_{i}}+\dfrac{h}{h\eta_{o}A_{o}}=\dfrac{0.00334}{160\times10^{3}\times0.02244}+\dfrac{67.01-23}{29.48}=1.49k/W$
+	
+	表面传热系数 $h=\dfrac{Q}{A_{1}(t_{w}−t_{f})}
+	\dfrac{33.57}{0.02244(67.01-23)}=29.85W/(m^{2}\cdot K)$
+	
+	\subsubsection{安放1根肋柱时}
+	
+	热电阻测量温度$t_{2} = 68.1$\textcelsius，标定后平板温度$t_{w2} = 66.9$\textcelsius
+	
+	上表面测量温度：$47.8$\textcelsius， 30号热电偶标定后上表面温度$t_{u}=47.05$\textcelsius
+	
+	下表面测量温度：$66.2$\textcelsius， 15号热电偶标定后下表面温度$t_{d}=64.9$\textcelsius
+	
+	总热阻 $R_{tot2}=\dfrac{0.00334}{160\times10^{3}\times0.02244}+\dfrac{66.9-23}{29.48}=1.48k/W$
+	
+	实验中选择了铝柱，根据$ \eta_{f} = \dfrac{Q-\text{平板散热}}{hPH_{C}\theta_{0}}= \dfrac{\tanh(mH_{C})}{mH_{C}}$，$m=\sqrt{\dfrac{4h}{\lambda d}}$
+	
+	每根铝柱的相当长度为：$ H_{C} $= 3.01cm
+	
+	代入得热效率$\eta_{f} = \dfrac{\tanh(mH_{C})}{mH_{C}} =0.6796$
+	
+	\subsubsection{安放多根肋柱时}
+	计算方式与上面类似，这里给出计算后总结表一张。
+	\begin{table}[h]
+		\begin{tabular}{|l|l|l|l|l|l|l|}
+			\hline
+			& 2根肋柱 & 标定后 & 3根肋柱 & 标定后 & 4根肋柱 & 标定后 \\ \hline
+			板温度(\textcelsius) & 65.77 & 63.74 & 64.3 & 62.3 & 57.31 & 55.42 \\ \hline
+			第一根肋柱下表面(\textcelsius) & 64.74 & 63.44 & 64.23 & 62.93 & 62.80 & 61.50 \\ \hline
+			第一根肋柱上表面(\textcelsius) & 47.22 & 46.52 & 47.91 & 47.21 & 47.38 & 46.68 \\ \hline
+			表面传热系数($W/m\cdot{k}$) & \multicolumn{6}{c|}{29.85} \\ \hline
+			总热阻($k/W$) & \multicolumn{2}{l|}{1.38} & \multicolumn{2}{l|}{1.33} & \multicolumn{2}{l|}{1.10} \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	\section{思考题与实验感想}
+	\subsection{伸展体热物性合气体速度如何影响总热阻大小的讨论}
+	伸展体的长度、表面积、材质会影响总热阻：长度越长，表面积越大，热阻越
+	小。同时不同材质的肋柱也会影响热阻的大小。
+	
+	同时，来流气体的速度越大，总热阻会越小。
+	\subsection{热平衡分析}
+	在风机未打开的时候，可使用
+	$$\eta=\dfrac{\text{铝板升温速率的微分}\times\text{铝比热容}\times\text{铝质量（铝密度乘体积）}}{VI\text{（电路的功率）}}$$计算$Q_{\text{吸}}$
+	。
+	
+	风机打开后，$Q_{\text{放}}$还有空气带走的热量，加上肋片后。还有肋片带走的热量，如果能够得到这些数据是可以得到热平衡方程的。
+	\subsection{误差分析}
+	a)气流的不稳定。观察电脑得知，即使是在稳态，几个热电偶所测得的温度依然是振动状态，实验中仅取平均值作为实际温度。如果为风机加装能够稳定气流的装置，可能能够使测量结果更加稳定、准确
+	b)热电偶。实验中对于热电偶的校正是根据对校正表格中实际温度和测量温度根据最小二乘法拟合出直线，再根据实际实验中热电偶显示温度推知实际温度。这个办法校正数据较少，可能不准确，需要对热电偶更精密的校准
+	c)装置本身的误差。在贴第一个肋片的时候，由于底下粘了热电偶，导致圆柱体不是很稳定，翻倒过几次。使得我的实验图线不是很标准。另外肋片距离测温点的远近与测温数据也有一定的关系。我们加的第四根圆柱离测温点很近，温度下降的趋势非常明显，而第二根和第三根略远，温度下降的趋势不太明显。
+	\subsection{体会}
+	在本次实验中，我使用自己装的肋片进行了一次导热的性能实验。记忆比较深刻的是涂银硅脂的过程。之前在自己装机的时候也在CPU与散热器之间涂过一点，不过与这次还不太一样。那时候有一些工具，要求是均匀而薄的一层硅脂来填补芯片与散热器之间的空隙，而这次要涂得均匀且厚，使得圆柱肋片能够比较稳定的站在薄板上而不倾倒。另外而且在观察图像的时候，可以将量程调的较小，这样可以更明显地看出实际的温度变化趋势。
+	\section{附录}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.5\linewidth]{IMG_0553}
+		\caption{肋片位置图示，从上到下分别为2、1、4、3}
+		\label{fig:img0553}
+	\end{figure}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.7\linewidth]{IMG_0554}
+		\caption{温度图线}
+		\label{fig:img0554}
+	\end{figure}
+	
+\end{document}
